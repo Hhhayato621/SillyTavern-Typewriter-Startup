@@ -1,0 +1,16 @@
+{
+  "display_name": "打字机 · 载入动画",
+  "loading_order": 1,
+  "requires": [],
+  "optional": [],
+  "js": "index.js",
+  "css": "style.css",
+  "author": "Bella",
+  "version": "1.0.0",
+  "minimum_client_version": "1.19.0",
+  "hooks": {
+    "activate": "init"
+  },
+  "auto_update": false,
+  "homePage": "https://github.com/Hhhayato621/SillyTavern-Typewriter-Startup"
+}

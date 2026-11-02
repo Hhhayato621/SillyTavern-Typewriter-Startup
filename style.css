@@ -1,0 +1,55 @@
+/* Typewriter startup, scoped to the initial splash; no changes to action loaders. */
+@font-face {font-family:TypewriterExtensionElite;src:url('./SpecialElite.woff2') format('woff2');font-display:swap;}
+#preloader:has(.twext-startup) {background:#eee9dc !important;backdrop-filter:none !important;color:#40392e !important;}
+#loader.twext-init-loader {filter:none !important;transition:opacity .18s ease !important;}
+#loader.twext-init-loader > #load-spinner,#loader.twext-init-loader > .splash-message {display:none !important;transition:none !important;}
+.twext-startup {
+ position:fixed !important;inset:0 !important;width:100vw !important;height:100dvh !important;max-width:none !important;max-height:none !important;margin:0 !important;z-index:0;isolation:isolate;display:grid;place-items:center;
+ padding:24px;box-sizing:border-box;overflow:hidden;color:#40392e !important;
+ background:linear-gradient(#eee9dcbb,#eee9dcd9),url('./wallpaper.webp') center/460px 460px repeat;
+}
+.twext-startup * {box-sizing:border-box;}
+.twext-startup .twext-startup-scene {width:min(600px,90vw);display:flex;align-items:center;flex-direction:column;position:relative;}
+.twext-startup .twext-startup-kicker {font:11px/1.4 TypewriterExtensionElite,'Courier New',monospace !important;letter-spacing:.3em;color:#87765a;margin:0 0 38px;}
+.twext-startup .twext-startup-machine {width:100%;position:relative;aspect-ratio:1.35;}
+.twext-startup .twext-startup-paper {
+ position:absolute;left:20%;width:60%;top:0;height:76%;overflow:hidden;
+ background:#f3e8d0 url('./paper.webp') center top/100% auto;
+ border:1px solid #c8b894;box-shadow:0 3px 0 #c9bda4,0 9px 16px #51432d20;
+ transform-origin:50% 100%;animation:twext-paper-feed 3.19s steps(11,end) .5s both;
+}
+.twext-startup .twext-startup-paper::before {content:'';position:absolute;inset:14px;border:1px solid #9e876220;pointer-events:none;}
+.twext-startup .twext-startup-imprint {position:absolute;left:0;right:0;top:19%;text-align:center;font:9px/1 TypewriterExtensionElite,'Courier New',monospace !important;letter-spacing:.22em;color:#a08b69;}
+.twext-startup .twext-startup-line {position:absolute;top:39%;left:50%;transform:translateX(-50%);width:11ch;font:clamp(22px,4.2vw,38px)/1.5 'Courier New',monospace !important;}
+.twext-startup .twext-startup-word {
+ display:block;width:0;max-width:11ch;overflow:hidden;white-space:nowrap;
+ font:inherit !important;font-weight:600 !important;letter-spacing:0 !important;
+ color:#3e372d !important;text-shadow:.35px .2px #74654a55;
+ animation:twext-typing 3.19s steps(11,end) .5s forwards;
+}
+.twext-startup .twext-startup-caret {position:absolute;top:10%;left:0;width:1px;height:72%;background:#756247;animation:twext-carriage 3.19s steps(11,end) .5s forwards,twext-blink .8s step-end infinite;}
+.twext-startup .twext-startup-deck {position:absolute;width:100%;height:auto;left:0;bottom:0;display:block;border-radius:9px;filter:drop-shadow(0 14px 12px #4c3b2929);}
+.twext-startup .twext-startup-strike {position:absolute;bottom:26%;left:48%;width:4%;height:13%;background:linear-gradient(90deg,#786d59,#ddd2b8,#756957);border-radius:3px;transform:scaleY(.05);transform-origin:50% 100%;opacity:0;animation:twext-strike .29s steps(2,end) .5s 11;pointer-events:none;}
+.twext-startup .twext-startup-status {margin:29px 0 0;font:12px/1.5 TypewriterExtensionElite,'Courier New',monospace !important;letter-spacing:.12em;color:#817054;text-align:center;}
+.twext-startup .twext-startup-status::after {content:'…';display:inline-block;animation:twext-blink 1.2s step-end infinite;}
+@keyframes twext-typing {from{width:0}to{width:11ch}}
+@keyframes twext-carriage {from{left:0}to{left:100%}}
+@keyframes twext-blink {0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes twext-paper-feed {from{transform:translateY(8px)}to{transform:translateY(0)}}
+@keyframes twext-strike {0%,100%{transform:scaleY(.05);opacity:0}50%{transform:scaleY(1);opacity:1}}
+@media(max-width:600px) {
+ .twext-startup {padding:16px;}
+ .twext-startup .twext-startup-kicker {font-size:9px !important;margin-bottom:30px;letter-spacing:.23em;}
+ .twext-startup .twext-startup-imprint {font-size:7px !important;}
+ .twext-startup .twext-startup-status {font-size:10px !important;margin-top:24px;}
+}
+@media(prefers-reduced-motion:reduce) {
+ .twext-startup .twext-startup-paper {animation:none;}
+ .twext-startup .twext-startup-word {animation:twext-typing 1s steps(11,end) .1s forwards;}
+ .twext-startup .twext-startup-caret {animation:twext-carriage 1s steps(11,end) .1s forwards;}
+ .twext-startup .twext-startup-strike,.twext-startup .twext-startup-status::after {animation:none;}
+}
+
+.twext-preview {position:fixed;inset:0;z-index:2147483646;isolation:isolate;}
+.twext-preview .twext-close {position:absolute;top:max(16px,env(safe-area-inset-top));right:16px;z-index:2;padding:10px 16px;border:1px solid #9b8866;border-radius:4px;background:#f3eddf;color:#463b2d;font:14px/1.4 TypewriterExtensionElite,monospace;cursor:pointer;}
+#typewriter-startup-settings small {display:block;line-height:1.7;opacity:.8;margin:8px 0;}
