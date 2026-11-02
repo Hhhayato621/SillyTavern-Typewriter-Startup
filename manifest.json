@@ -6,8 +6,8 @@
   "js": "index.js",
   "css": "style.css",
   "author": "Bella",
-  "version": "1.0.0",
-  "minimum_client_version": "1.19.0",
+  "version": "1.0.1",
+  "minimum_client_version": "1.18.0",
   "hooks": {
     "activate": "init"
   },
