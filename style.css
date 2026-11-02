@@ -29,14 +29,13 @@
 }
 .twext-startup .twext-startup-caret {position:absolute;top:10%;left:0;width:1px;height:72%;background:#756247;animation:twext-carriage 3.19s steps(11,end) .5s forwards,twext-blink .8s step-end infinite;}
 .twext-startup .twext-startup-deck {position:absolute;width:100%;height:auto;left:0;bottom:0;display:block;border-radius:9px;filter:drop-shadow(0 14px 12px #4c3b2929);}
-.twext-startup .twext-startup-strike {position:absolute;bottom:26%;left:48%;width:4%;height:13%;background:linear-gradient(90deg,#786d59,#ddd2b8,#756957);border-radius:3px;transform:scaleY(.05);transform-origin:50% 100%;opacity:0;animation:twext-strike .29s steps(2,end) .5s 11;pointer-events:none;}
+.twext-startup .twext-startup-strike {display:none !important;}
 .twext-startup .twext-startup-status {margin:29px 0 0;font:12px/1.5 TypewriterExtensionElite,'Courier New',monospace !important;letter-spacing:.12em;color:#817054;text-align:center;}
 .twext-startup .twext-startup-status::after {content:'…';display:inline-block;animation:twext-blink 1.2s step-end infinite;}
 @keyframes twext-typing {from{width:0}to{width:11ch}}
 @keyframes twext-carriage {from{left:0}to{left:100%}}
 @keyframes twext-blink {0%,49%{opacity:1}50%,100%{opacity:0}}
 @keyframes twext-paper-feed {from{transform:translateY(8px)}to{transform:translateY(0)}}
-@keyframes twext-strike {0%,100%{transform:scaleY(.05);opacity:0}50%{transform:scaleY(1);opacity:1}}
 @media(max-width:600px) {
  .twext-startup {padding:16px;}
  .twext-startup .twext-startup-kicker {font-size:9px !important;margin-bottom:30px;letter-spacing:.23em;}
@@ -47,7 +46,7 @@
  .twext-startup .twext-startup-paper {animation:none;}
  .twext-startup .twext-startup-word {animation:twext-typing 1s steps(11,end) .1s forwards;}
  .twext-startup .twext-startup-caret {animation:twext-carriage 1s steps(11,end) .1s forwards;}
- .twext-startup .twext-startup-strike,.twext-startup .twext-startup-status::after {animation:none;}
+ .twext-startup .twext-startup-status::after {animation:none;}
 }
 
 .twext-preview {position:fixed;inset:0;z-index:2147483646;isolation:isolate;}
